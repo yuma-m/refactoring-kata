@@ -67,4 +67,30 @@ public class Product {
     public String getCurrency() {
         return currency;
     }
+
+    public String asJson() {
+        StringBuffer sb = new StringBuffer();
+
+        sb.append("{");
+        sb.append("\"code\": \"");
+        sb.append(getCode());
+        sb.append("\", ");
+        sb.append("\"color\": \"");
+        sb.append(getColorAsString());
+        sb.append("\", ");
+
+        if (getSize() != Product.SIZE_NOT_APPLICABLE) {
+            sb.append("\"size\": \"");
+            sb.append(getSizeAsString());
+            sb.append("\", ");
+        }
+
+        sb.append("\"price\": ");
+        sb.append(getPrice());
+        sb.append(", ");
+        sb.append("\"currency\": \"");
+        sb.append(getCurrency());
+        sb.append("\"}, ");
+        return sb.toString();
+    }
 }
