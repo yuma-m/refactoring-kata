@@ -11,15 +11,11 @@ public class Order {
         this.id = id;
     }
 
-    public int getOrderId() {
-        return id;
-    }
-
-    public int getProductsCount() {
+    private int getProductsCount() {
         return products.size();
     }
 
-    public Product getProduct(int j) {
+    private Product getProduct(int j) {
         return products.get(j);
     }
 
@@ -27,11 +23,11 @@ public class Order {
         products.add(product);
     }
 
-    public String asJson() {
-        StringBuffer sb = new StringBuffer();
+    String asJson() {
+        StringBuilder sb = new StringBuilder();
         sb.append("{");
         sb.append("\"id\": ");
-        sb.append(getOrderId());
+        sb.append(id);
         sb.append(", ");
         sb.append("\"products\": [");
         for (int j = 0; j < getProductsCount(); j++) {

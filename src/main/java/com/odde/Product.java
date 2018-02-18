@@ -1,7 +1,7 @@
 package com.odde;
 
 public class Product {
-    public static final int SIZE_NOT_APPLICABLE = -1;
+    private static final int SIZE_NOT_APPLICABLE = -1;
     private String code;
     private int color;
     private int size;
@@ -16,15 +16,7 @@ public class Product {
         this.currency = currency;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public int getColor() {
-        return color;
-    }
-
-    public String getColorAsString() {
+    String getColorAsString() {
         switch (color) {
             case 1:
                 return "blue";
@@ -37,11 +29,7 @@ public class Product {
         }
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public String getSizeAsString() {
+    String getSizeAsString() {
         switch (size) {
             case 1:
                 return "XS";
@@ -60,36 +48,28 @@ public class Product {
         }
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public String asJson() {
-        StringBuffer sb = new StringBuffer();
+    String asJson() {
+        StringBuilder sb = new StringBuilder();
 
         sb.append("{");
         sb.append("\"code\": \"");
-        sb.append(getCode());
+        sb.append(code);
         sb.append("\", ");
         sb.append("\"color\": \"");
         sb.append(getColorAsString());
         sb.append("\", ");
 
-        if (getSize() != Product.SIZE_NOT_APPLICABLE) {
+        if (size != Product.SIZE_NOT_APPLICABLE) {
             sb.append("\"size\": \"");
             sb.append(getSizeAsString());
             sb.append("\", ");
         }
 
         sb.append("\"price\": ");
-        sb.append(getPrice());
+        sb.append(price);
         sb.append(", ");
         sb.append("\"currency\": \"");
-        sb.append(getCurrency());
+        sb.append(currency);
         sb.append("\"}, ");
         return sb.toString();
     }

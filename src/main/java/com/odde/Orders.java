@@ -10,16 +10,16 @@ public class Orders {
         orders.add(order);
     }
 
-    public int getOrdersCount() {
+    private int getOrdersCount() {
         return orders.size();
     }
 
-    public Order getOrder(int i) {
+    private Order getOrder(int i) {
         return orders.get(i);
     }
 
-    public String asJson() {
-        StringBuffer sb = new StringBuffer("{\"orders\": [");
+    String asJson() {
+        StringBuilder sb = new StringBuilder("{\"orders\": [");
 
         for (int i = 0; i < getOrdersCount(); i++) {
             Order order = getOrder(i);
